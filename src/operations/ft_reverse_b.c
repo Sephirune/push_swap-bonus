@@ -20,6 +20,8 @@ void	ft_reverse_b(t_data *data, int check)
 		return ;
 	last = ft_lstlast(data->b);
 	blast = last->previous;
+	if (blast)
+		blast->next = NULL;
 	blast->next = NULL;
 	last->next = data->b;
 	last->previous = NULL;
