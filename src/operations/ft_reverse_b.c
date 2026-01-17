@@ -18,9 +18,7 @@ void	ft_reverse_b(t_data *data, int check)
 
 	if (!data->b || !data->b->next)
 		return ;
-	last = data->b;
-	while (last->next)
-		last = last->next;
+	last = ft_lstlast(data->b);
 	blast = last->previous;
 	blast->next = NULL;
 	last->next = data->b;
@@ -28,5 +26,5 @@ void	ft_reverse_b(t_data *data, int check)
 	data->b->previous = last;
 	data->b = last;
 	if (check)
-		ft_print_ints("rra\n", &data->moves);
+		ft_print_ints("rrb\n", &data->moves);
 }

@@ -17,7 +17,7 @@ void	ft_swap_b(t_data *data, int check)
 	t_list	*second;
 	t_list	*third;
 
-	if (data->b || !data->b->next)
+	if (!data->b || !data->b->next)
 		return ;
 	first = data->b;
 	second = data->b->next;
@@ -27,6 +27,8 @@ void	ft_swap_b(t_data *data, int check)
 	second->next = first;
 	first->previous = second;
 	first->next = third;
+	if (third)
+		third->previous = first;
 	if (check)
 		ft_print_ints("sb\n", &data->moves);
 }

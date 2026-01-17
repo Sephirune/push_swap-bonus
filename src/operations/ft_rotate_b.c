@@ -17,13 +17,11 @@ void	ft_rotate_b(t_data *data, int check)
 	t_list	*second;
 	t_list	*last;
 
-	if (!data->a || !data->a->next)
+	if (!data->b || !data->b->next)
 		return ;
 	first = data->b;
-	second = data->a->next;
-	last = data->b;
-	while (last->next)
-		last = last->next;
+	second = data->b->next;
+	last = ft_lstlast(data->b);
 	data->b = second;
 	second->previous = NULL;
 	last->next = first;

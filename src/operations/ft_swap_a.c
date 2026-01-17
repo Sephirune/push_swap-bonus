@@ -27,6 +27,8 @@ void	ft_swap_a(t_data *data, int check)
 	second->next = first;
 	first->previous = second;
 	first->next = third;
+	if (third)
+		third->previous = first;
 	if (check)
 		ft_print_ints("sa\n", &data->moves);
 }
