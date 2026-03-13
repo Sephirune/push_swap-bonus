@@ -9,7 +9,6 @@
 /*   Updated: 2026/01/12 16:09:17 by aarogarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	aux_split(t_data *data, char **split)
@@ -23,10 +22,16 @@ void	aux_split(t_data *data, char **split)
 	{
 		value = ft_atoi(split[j]);
 		if (check_duplicate(data, value))
+		{	
+			free_split(split);
 			check_error_free(data);
+		}
 		node = ft_lstnew(value);
 		if (!node)
+		{
+			free_split(split);
 			check_error_free(data);
+		}
 		ft_lstadd_back(&data->a, node);
 		j++;
 	}
